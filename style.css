@@ -1,0 +1,101 @@
+/* Abdulhamid portfoliosi — jurnal uslubi: qog'oz fon, qora siyoh, kobalt ko'k */
+:root {
+  --paper: #f2f0e9;
+  --ink: #111111;
+  --muted: #5d5b55;
+  --cobalt: #2340ff;
+  --signal: #ffe14d;
+  --line: #111111;
+
+  --display: "Syne", "Arial Black", Impact, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "DM Mono", ui-monospace, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+::selection { background: var(--signal); }
+.mono { font-family: var(--mono); font-size: 14px; letter-spacing: .02em; }
+
+main, .masthead, footer {
+  max-width: 1200px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* yuqori chiziq */
+.masthead { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 18px; border-bottom: 2px solid var(--line); }
+.masthead nav { display: flex; gap: 22px; }
+.masthead nav a, .back { text-decoration: none; font-weight: 700; }
+.masthead nav a:hover, .back:hover { color: var(--cobalt); }
+
+/* hero */
+.hero { padding-block: 40px 56px; }
+.hero h1 {
+  font-family: var(--display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(30px, 8.4vw, 150px); line-height: .88; letter-spacing: -0.035em; margin: 0 0 36px;
+}
+.hero h1 span { display: block; width: max-content; max-width: none; white-space: nowrap; }
+.hero h1 span:last-child { color: var(--cobalt); }
+.hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 36px; align-items: end; }
+.photo { margin: 0; aspect-ratio: 1; max-width: 460px; width: 100%; background: var(--cobalt); position: relative; overflow: hidden; border: 2px solid var(--line); }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply; }
+.intro { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.label { margin: 18px 0 0; color: var(--muted); text-transform: uppercase; }
+.lead { margin: 0; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.35; font-weight: 500; max-width: 34ch; }
+.goal { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(28px, 4vw, 48px); line-height: 1; }
+.goal mark { background: var(--signal); padding: 0 .12em; }
+
+/* ko'nikmalar lentasi */
+.ticker { border-block: 2px solid var(--line); background: var(--ink); color: var(--paper); overflow: hidden; }
+.ticker-track { display: flex; width: max-content; animation: scroll 28s linear infinite; }
+.ticker-track span { font-family: var(--display); font-weight: 800; font-size: 30px; text-transform: uppercase; padding: 14px 26px; white-space: nowrap; }
+.ticker-track span.now { color: var(--signal); }
+.ticker-track span::after { content: "✦"; margin-left: 52px; color: var(--cobalt); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; flex-wrap: wrap; width: auto; } }
+
+/* bloklar */
+.block { padding-block: 64px; border-bottom: 2px solid var(--line); }
+.block-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 32px; }
+.block-head .mono { color: var(--cobalt); font-size: 18px; font-weight: 500; }
+.block-head h2 { margin: 0; font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(36px, 6vw, 72px); line-height: .95; letter-spacing: -0.02em; }
+
+/* o'quv yo'li */
+.journey { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.journey li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.journey .n { font-family: var(--mono); color: var(--muted); }
+.journey .t { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 3vw, 34px); }
+.journey .s { font-family: var(--mono); font-size: 13px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
+.journey li.now { background: var(--signal); box-shadow: -12px 0 0 var(--signal), 12px 0 0 var(--signal); }
+@media (max-width: 520px) { .journey .s { font-size: 11px; padding: 3px 8px; } .journey .t { font-size: 20px; } }
+.journey li.now .s { background: var(--ink); color: var(--signal); }
+
+/* ishlar */
+.works { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); border-top: 2px solid var(--line); border-left: 2px solid var(--line); }
+.work { display: flex; flex-direction: column; gap: 14px; padding: 28px; border-right: 2px solid var(--line); border-bottom: 2px solid var(--line); min-width: 0; text-decoration: none; transition: background .15s, color .15s; }
+a.work:hover { background: var(--cobalt); color: var(--paper); }
+.work .kind { font-family: var(--mono); font-size: 13px; text-transform: uppercase; color: var(--cobalt); }
+a.work:hover .kind { color: var(--signal); }
+.work h3 { margin: 0; font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1.05; }
+.work p { margin: 0; flex: 1; }
+.work .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.work .tags span { font-family: var(--mono); font-size: 12px; border: 1px solid currentColor; padding: 3px 8px; }
+.work .go { font-weight: 700; }
+
+/* aloqa */
+.contacts { list-style: none; margin: 0; padding: 0; }
+.contacts li { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.contacts .k { font-family: var(--mono); color: var(--muted); text-transform: uppercase; }
+.contacts .v { font-family: var(--display); font-weight: 700; font-size: clamp(20px, 3.4vw, 40px); text-decoration: none; overflow-wrap: anywhere; }
+.contacts a.v:hover { color: var(--cobalt); }
+.copy { font-family: var(--mono); font-size: 13px; background: var(--ink); color: var(--paper); border: 0; padding: 8px 14px; cursor: pointer; }
+.copy:hover { background: var(--cobalt); }
+
+footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 28px 44px; }
+footer a { font-weight: 500; }

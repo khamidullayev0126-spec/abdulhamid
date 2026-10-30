@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdulhamid Xamidullayev · Portfolio</title>
+  <meta name="description" content="Abdulhamid Xamidullayev — CoddyCamp Junior guruhi o'quvchisi, junior dasturchi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="masthead">
+    <a href="../index.html" class="back mono">← Jamoa</a>
+    <span class="mono" id="issue"></span>
+    <nav>
+      <a href="#yol">Yo'l</a>
+      <a href="#ishlar">Ishlar</a>
+      <a href="#aloqa">Aloqa</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 id="name" data-fit></h1>
+      <div class="hero-grid">
+        <figure class="photo"><img id="photo" alt=""></figure>
+        <div class="intro">
+          <p class="mono label">Kim</p>
+          <p class="lead" id="lead"></p>
+          <p class="mono label">Maqsad</p>
+          <p class="goal" id="goal"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ko'nikmalar lentasi: script.js bilan to'ldiriladi -->
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+    <section id="yol" class="block">
+      <div class="block-head"><span class="mono">01</span><h2>O'quv yo'li</h2></div>
+      <ol class="journey" id="journey"></ol>
+    </section>
+
+    <section id="ishlar" class="block">
+      <div class="block-head"><span class="mono">02</span><h2>Ishlar</h2></div>
+      <div class="works" id="works"></div>
+    </section>
+
+    <section id="aloqa" class="block contact">
+      <div class="block-head"><span class="mono">03</span><h2>Aloqa</h2></div>
+      <ul class="contacts" id="contacts"></ul>
+    </section>
+  </main>
+
+  <footer class="mono">
+    <span>© <span id="year"></span> Abdulhamid Xamidullayev</span>
+    <a href="../bilol/index.html">Bilol Bahriddinov portfoliosi →</a>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="../fit.js"></script>
+</body>
+</html>
